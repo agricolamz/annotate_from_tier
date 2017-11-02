@@ -10,10 +10,11 @@ form Open all files in directory
   integer contier 5
 endformx
 
+uttier  = uttier + 1
 grid = selected ("TextGrid", 1)
 selectObject: grid
+Duplicate tier: contier, 1, "source"
 Duplicate tier: uttier, 1, "sounds"
-Duplicate tier: contier, 2, "source"
 
 n_annotation_2 = Get number of intervals: 2
 Replace interval text: 2, 0, n_annotation_2, "p:", "1", "Literals"
@@ -49,7 +50,7 @@ Replace interval text: 2, 0, n_annotation_2, "ɢˤ", "}", "Literals"
 Replace interval text: 2, 0, n_annotation_2, "kw", "<", "Literals"
 Replace interval text: 2, 0, n_annotation_2, "n:", ">", "Literals"
 
-uttier = uttier+2
+uttier = uttier+1
 n_annotation = Get number of intervals: uttier
 n_annotation = n_annotation / 2
 for i from 1 to n_annotation
