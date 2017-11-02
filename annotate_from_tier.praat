@@ -52,28 +52,29 @@ Replace interval text: 2, 0, n_annotation_2, "n:", ">", "Literals"
 
 uttier = uttier+1
 n_annotation = Get number of intervals: uttier
-n_annotation = n_annotation / 2
 for i from 1 to n_annotation
-	ut_start_point = Get starting point: uttier, i*2
-	int_n = Get interval at time: 1, ut_start_point
-	Set interval text: 1, int_n, ""
-	start = Get starting point: uttier, i*2
-	end = Get end point: uttier, i*2
+	start = Get starting point: uttier, i
+	end = Get end point: uttier, i
 	label_n = Get interval at time: 2, start
 	label$ = Get label of interval: 2, label_n
-	l = length (label$)
-	for j from 1 to l
-		b$ = mid$ (label$, j, 1)
-		boundary_time = start + (end-start)/l*j
-		if boundary_time < end
-			Insert boundary: 1, boundary_time
-			int_n_l = Get interval at time: 1, boundary_time
-			Set interval text: 1, (int_n_l-1), b$
-		else
-			int_n = Get interval at time: 1, boundary_time
-			Set interval text: 1, (int_n_l), b$
-		endif
-	endfor
+	int_n = Get interval at time: 1, start
+	ut_label$ = Get label of interval: 1, int_n
+	if ut_label$ != ""
+		Set interval text: 1, int_n, ""
+		l = length (label$)
+		for j from 1 to l
+			b$ = mid$ (label$, j, 1)
+			boundary_time = start + (end-start)/l*j
+			if boundary_time < end
+				Insert boundary: 1, boundary_time
+				int_n_l = Get interval at time: 1, boundary_time
+				Set interval text: 1, (int_n_l-1), b$
+			else
+				int_n = Get interval at time: 1, boundary_time
+				Set interval text: 1, (int_n_l), b$
+			endif
+		endfor
+	endif
 endfor
 
 Remove tier: 2
