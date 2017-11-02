@@ -1,14 +1,14 @@
 # This is a Praat script that creates new tier and fill it with information from other tier (each sound separatly).
 
 # This script is distributed under the GNU General Public License.
-# George Moroz 31.10.2017
+# George Moroz 02.11.2017
 
 form Open all files in directory
   comment Which tier is the utterance tier?
-  integer uttier 6
+  integer uttier 3
   comment Which tier is the contence tier?
-  integer contier 5
-endformx
+  integer contier 1
+endform
 
 uttier  = uttier + 1
 grid = selected ("TextGrid", 1)
