@@ -3,7 +3,7 @@
 # This script is distributed under the GNU General Public License.
 # George Moroz 02.11.2017
 
-form Open all files in directory
+form
   comment Which tier is the utterance tier?
   integer uttier 3
   comment Which tier is the contence tier?
